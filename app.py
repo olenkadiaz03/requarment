@@ -8,6 +8,8 @@ import os # Para acceder a variables de entorno
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
 model = genai.GenerativeModel('gemini-pro')
+
+
 # Funciones del core (las que definiste en el Paso 2)
 # Colócalas aquí dentro del mismo archivo app.py
 def explicar_concepto(tema):
@@ -37,7 +39,7 @@ def evaluar_respuesta_y_dar_feedback(ejercicio, respuesta_estudiante):
     """
     response = model.generate_content(prompt)
     return response.text
-    
+
 st.title("👨‍🏫 Chatbot de Física 1 para Universitarios")
 st.markdown("¡Bienvenido! Estoy aquí para ayudarte con tus dudas de Física 1.")
 
@@ -82,4 +84,5 @@ elif opcion == "Evaluar mi Respuesta a un Ejercicio":
                 st.warning("Por favor, escribe tu respuesta para evaluar.")
     else:
         st.info("Primero genera un ejercicio en la sección 'Proponer un Ejercicio'.")
+
 
